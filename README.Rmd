@@ -1,5 +1,7 @@
 ---
 output: github_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -14,6 +16,9 @@ knitr::opts_chunk$set(
 ```
 
 # `kffdata`
+
+[![Travis-CI Build Status](https://travis-ci.org/jjchern/kffdata.svg?branch=master)](https://travis-ci.org/jjchern/kffdata)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/jjchern/kffdata?branch=master&svg=true)](https://ci.appveyor.com/project/jjchern/kffdata)
 
 The goal of kffdata is to store a few datasets from [the Kaiser Family Foundation](https://www.kff.org/statedata/) in a tidy format. The following
 datasets are currently available:
@@ -44,5 +49,35 @@ devtools::install_github("jjchern/kffdata")
 
 # Usage
 
-To be added later.
+```{r show_data}
+library(tidyverse)
+kffdata::hosp_beds
+kffdata::hosp_admissions
+kffdata::hosp_em_visits
+kffdata::hosp_ip_days
+kffdata::hosp_op_visits
+kffdata::hc_eee_pc
+kffdata::hc_eee_pc_by_srvu
+kffdata::pct_diabetes
+kffdata::pct_overweight_obesity
+```
 
+```{r hosp_beds, echo=FALSE, message=FALSE, warning=FALSE}
+kffdata::hosp_beds %>% 
+    filter(year == 2014) %>% 
+    rename(id = fips) %>% 
+    right_join(usmapdata::state) -> beds_2014
+
+ggplot() +
+    geom_map(data = beds_2014, map = beds_2014,
+             aes(x = long, y = lat, map_id = id, fill = total),
+             colour = alpha("white", 0.5), size=0.2) +
+    coord_map("albers", lat0 = 30, lat1 = 40) +
+    viridis::scale_fill_viridis(option = "C") +
+    ggtitle("U.S. Hospital Beds per 1,000 Population, 2014") +
+    hrbrthemes::theme_ipsum_ps() +
+    ggthemes::theme_map() +
+    theme(legend.position = c(.85, .3),
+          legend.title=element_blank(),
+          plot.title = element_text(hjust = 0.5)) 
+```
