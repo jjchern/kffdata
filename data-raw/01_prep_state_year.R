@@ -1,5 +1,6 @@
 
 # devtools::install.github("jjchern/fips@v0.0.2")
+# To update, select "Trend Graph", timeframe, and geographic units
 
 library(tidyverse)
 
