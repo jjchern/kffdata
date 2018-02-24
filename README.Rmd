@@ -1,0 +1,48 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# `kffdata`
+
+The goal of kffdata is to store a few datasets from [the Kaiser Family Foundation](https://www.kff.org/statedata/) in a tidy format. The following
+datasets are currently available:
+
+```R
+kffdata::hosp_beds
+kffdata::hosp_admissions
+kffdata::hosp_em_visits
+kffdata::hosp_ip_days
+kffdata::hosp_op_visits
+kffdata::hc_eee_pc
+kffdata::hc_eee_pc_by_srvu
+kffdata::pct_diabetes
+kffdata::pct_overweight_obesity
+```
+
+# Installation
+
+You can install `kffdata` from the Github repo with
+
+```R
+# install.packages("devtools")
+devtools::install_github("jjchern/kffdata")
+
+# To uninstall the package, use:
+# remove.packages("kffdata")
+```
+
+# Usage
+
+To be added later.
+
