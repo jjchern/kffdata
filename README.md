@@ -1,11 +1,16 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-`kffdata`
-=========
 
-[![Travis-CI Build Status](https://travis-ci.org/jjchern/kffdata.svg?branch=master)](https://travis-ci.org/jjchern/kffdata) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/jjchern/kffdata?branch=master&svg=true)](https://ci.appveyor.com/project/jjchern/kffdata)
+# About `kffdata`
 
-The goal of kffdata is to store a few datasets from [the Kaiser Family Foundation](https://www.kff.org/statedata/) in a tidy format. The following datasets are currently available:
+[![Travis-CI Build
+Status](https://travis-ci.org/jjchern/kffdata.svg?branch=master)](https://travis-ci.org/jjchern/kffdata)
+[![AppVeyor Build
+Status](https://ci.appveyor.com/api/projects/status/github/jjchern/kffdata?branch=master&svg=true)](https://ci.appveyor.com/project/jjchern/kffdata)
+
+The R package `kffdata` stores a few datasets from [the Kaiser Family
+Foundation](https://www.kff.org/statedata/) in a tidy format. The
+following datasets are currently available:
 
 ``` r
 kffdata::hosp_beds
@@ -19,32 +24,31 @@ kffdata::pct_diabetes
 kffdata::pct_overweight_obesity
 ```
 
-Installation
-============
+# Installation
 
 You can install `kffdata` from the Github repo with
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("jjchern/kffdata")
+devtools::install_github("jjchern/kffdata@v0.0.1")
 
 # To uninstall the package, use:
 # remove.packages("kffdata")
 ```
 
-Usage
-=====
+# Usage
 
 ``` r
 library(tidyverse)
-#> ── Attaching packages ─────────────────────────────────────────── tidyverse 1.2.1 ──
-#> ✔ ggplot2 2.2.1          ✔ purrr   0.2.4     
+#> ── Attaching packages ───────────────────────────────── tidyverse 1.2.1 ──
+#> ✔ ggplot2 2.2.1.9000     ✔ purrr   0.2.4     
 #> ✔ tibble  1.4.2          ✔ dplyr   0.7.4     
 #> ✔ tidyr   0.8.0          ✔ stringr 1.3.0     
-#> ✔ readr   1.1.1.9000     ✔ forcats 0.2.0
-#> ── Conflicts ────────────────────────────────────────────── tidyverse_conflicts() ──
+#> ✔ readr   1.1.1.9000     ✔ forcats 0.3.0
+#> ── Conflicts ──────────────────────────────────── tidyverse_conflicts() ──
 #> ✖ dplyr::filter() masks stats::filter()
 #> ✖ dplyr::lag()    masks stats::lag()
+#> ✖ dplyr::vars()   masks ggplot2::vars()
 kffdata::hosp_beds
 #> # A tibble: 867 x 8
 #>    state   fips  usps  year  for_profit non_profit state_local_gove… total
@@ -64,31 +68,31 @@ kffdata::hosp_admissions
 #> # A tibble: 867 x 8
 #>    state   fips  usps  year  for_profit non_profit state_local_gove… total
 #>    <chr>   <chr> <chr> <chr>      <dbl>      <dbl>             <dbl> <dbl>
-#>  1 Alabama 01    AL    1999        26.4       63.5              63.5   153
-#>  2 Alabama 01    AL    2000        31.7       63.2              57.9   153
-#>  3 Alabama 01    AL    2001        31.8       62.2              59.4   153
-#>  4 Alabama 01    AL    2002        32.0       62.3              56.7   151
-#>  5 Alabama 01    AL    2003        36.6       63.1              57.7   157
-#>  6 Alabama 01    AL    2004        37.3       63.4              57.5   158
-#>  7 Alabama 01    AL    2005        37.0       59.5              58.8   155
-#>  8 Alabama 01    AL    2006        40.1       40.4              68.5   149
-#>  9 Alabama 01    AL    2007        39.8       41.6              69.1   150
-#> 10 Alabama 01    AL    2008        37.5       40.2              69.3   147
+#>  1 Alabama 01    AL    1999        26.4       63.5              63.5  153.
+#>  2 Alabama 01    AL    2000        31.7       63.2              57.9  153.
+#>  3 Alabama 01    AL    2001        31.8       62.2              59.4  153.
+#>  4 Alabama 01    AL    2002        32.0       62.3              56.7  151.
+#>  5 Alabama 01    AL    2003        36.6       63.1              57.7  157.
+#>  6 Alabama 01    AL    2004        37.3       63.4              57.5  158.
+#>  7 Alabama 01    AL    2005        37.0       59.5              58.8  155.
+#>  8 Alabama 01    AL    2006        40.1       40.4              68.5  149.
+#>  9 Alabama 01    AL    2007        39.8       41.6              69.1  150.
+#> 10 Alabama 01    AL    2008        37.5       40.2              69.3  147.
 #> # ... with 857 more rows
 kffdata::hosp_em_visits
 #> # A tibble: 867 x 8
 #>    state   fips  usps  year  for_profit non_profit state_local_gove… total
 #>    <chr>   <chr> <chr> <chr>      <dbl>      <dbl>             <dbl> <dbl>
-#>  1 Alabama 01    AL    1999        78.4        174               199   451
-#>  2 Alabama 01    AL    2000       102          172               192   465
-#>  3 Alabama 01    AL    2001       101          154               184   439
-#>  4 Alabama 01    AL    2002       108          174               201   483
-#>  5 Alabama 01    AL    2003       116          168               192   476
-#>  6 Alabama 01    AL    2004       107          158               183   448
-#>  7 Alabama 01    AL    2005       114          156               188   459
-#>  8 Alabama 01    AL    2006       133          118               227   345
-#>  9 Alabama 01    AL    2007       121          129               237   366
-#> 10 Alabama 01    AL    2008       122          127               236   486
+#>  1 Alabama 01    AL    1999        78.4       174.              199.  451.
+#>  2 Alabama 01    AL    2000       102.        172.              192.  465.
+#>  3 Alabama 01    AL    2001       101.        154.              184.  439.
+#>  4 Alabama 01    AL    2002       108.        174.              201.  483.
+#>  5 Alabama 01    AL    2003       116.        168.              192.  476.
+#>  6 Alabama 01    AL    2004       107.        158.              183.  448.
+#>  7 Alabama 01    AL    2005       114.        156.              188.  459.
+#>  8 Alabama 01    AL    2006       133.        118.              227.  345.
+#>  9 Alabama 01    AL    2007       121.        129.              237.  366.
+#> 10 Alabama 01    AL    2008       122.        127.              236.  486.
 #> # ... with 857 more rows
 kffdata::hosp_ip_days
 #> # A tibble: 867 x 8
@@ -109,46 +113,46 @@ kffdata::hosp_op_visits
 #> # A tibble: 867 x 8
 #>    state   fips  usps  year  for_profit non_profit state_local_gove… total
 #>    <chr>   <chr> <chr> <chr>      <dbl>      <dbl>             <dbl> <dbl>
-#>  1 Alabama 01    AL    1999         314        763               716  1793
-#>  2 Alabama 01    AL    2000         341        773               675  1789
-#>  3 Alabama 01    AL    2001         345        707               691  1743
-#>  4 Alabama 01    AL    2002         485        922               836  2243
-#>  5 Alabama 01    AL    2003         342        864               770  1976
-#>  6 Alabama 01    AL    2004         330        816               680  1826
-#>  7 Alabama 01    AL    2005         322        721               617  1659
-#>  8 Alabama 01    AL    2006         366        563               819  1748
-#>  9 Alabama 01    AL    2007         355        590               824  1769
-#> 10 Alabama 01    AL    2008         353        640               936  1928
+#>  1 Alabama 01    AL    1999        314.       763.              716. 1793.
+#>  2 Alabama 01    AL    2000        341.       773.              675. 1789.
+#>  3 Alabama 01    AL    2001        345.       707.              691. 1743.
+#>  4 Alabama 01    AL    2002        485.       922.              836. 2243.
+#>  5 Alabama 01    AL    2003        342.       864.              770. 1976.
+#>  6 Alabama 01    AL    2004        330.       816.              680. 1826.
+#>  7 Alabama 01    AL    2005        322.       721.              617. 1659.
+#>  8 Alabama 01    AL    2006        366.       563.              819. 1748.
+#>  9 Alabama 01    AL    2007        355.       590.              824. 1769.
+#> 10 Alabama 01    AL    2008        353.       640.              936. 1928.
 #> # ... with 857 more rows
 kffdata::hc_eee_pc
 #> # A tibble: 1,224 x 5
 #>    state   fips  usps  year  health_spending_per_capita
 #>    <chr>   <chr> <chr> <chr>                      <dbl>
-#>  1 Alabama 01    AL    1991                        2535
-#>  2 Alabama 01    AL    1992                        2716
-#>  3 Alabama 01    AL    1993                        2854
-#>  4 Alabama 01    AL    1994                        2991
-#>  5 Alabama 01    AL    1995                        3163
-#>  6 Alabama 01    AL    1996                        3336
-#>  7 Alabama 01    AL    1997                        3540
-#>  8 Alabama 01    AL    1998                        3601
-#>  9 Alabama 01    AL    1999                        3714
-#> 10 Alabama 01    AL    2000                        3932
+#>  1 Alabama 01    AL    1991                       2535.
+#>  2 Alabama 01    AL    1992                       2716.
+#>  3 Alabama 01    AL    1993                       2854.
+#>  4 Alabama 01    AL    1994                       2991.
+#>  5 Alabama 01    AL    1995                       3163.
+#>  6 Alabama 01    AL    1996                       3336.
+#>  7 Alabama 01    AL    1997                       3540.
+#>  8 Alabama 01    AL    1998                       3601.
+#>  9 Alabama 01    AL    1999                       3714.
+#> 10 Alabama 01    AL    2000                       3932.
 #> # ... with 1,214 more rows
 kffdata::hc_eee_pc_by_srvu
 #> # A tibble: 1,224 x 13
 #>    state  fips  usps  year  dental_services home_health_care hospital_care
 #>    <chr>  <chr> <chr> <chr>           <dbl>            <dbl>         <dbl>
-#>  1 Alaba… 01    AL    1991             98.0             62.0          1092
-#>  2 Alaba… 01    AL    1992            110               79.0          1201
-#>  3 Alaba… 01    AL    1993            114              104            1225
-#>  4 Alaba… 01    AL    1994            121              118            1257
-#>  5 Alaba… 01    AL    1995            128              139            1345
-#>  6 Alaba… 01    AL    1996            135              150            1411
-#>  7 Alaba… 01    AL    1997            143              150            1405
-#>  8 Alaba… 01    AL    1998            148              128            1379
-#>  9 Alaba… 01    AL    1999            160              106            1407
-#> 10 Alaba… 01    AL    2000            170               99.0          1448
+#>  1 Alaba… 01    AL    1991              98.              62.         1092.
+#>  2 Alaba… 01    AL    1992             110.              79.         1201.
+#>  3 Alaba… 01    AL    1993             114.             104.         1225.
+#>  4 Alaba… 01    AL    1994             121.             118.         1257.
+#>  5 Alaba… 01    AL    1995             128.             139.         1345.
+#>  6 Alaba… 01    AL    1996             135.             150.         1411.
+#>  7 Alaba… 01    AL    1997             143.             150.         1405.
+#>  8 Alaba… 01    AL    1998             148.             128.         1379.
+#>  9 Alaba… 01    AL    1999             160.             106.         1407.
+#> 10 Alaba… 01    AL    2000             170.              99.         1448.
 #> # ... with 1,214 more rows, and 6 more variables: medical_durables <dbl>,
 #> #   nursing_home_care <dbl>,
 #> #   other_health_residential_and_personal_care <dbl>,

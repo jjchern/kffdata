@@ -8,19 +8,20 @@ editor_options:
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
+    cache = FALSE,
+    collapse = TRUE,
+    comment = "#>",
+    fig.path = "man/figures/README-",
+    out.width = "100%"
 )
 ```
 
-# `kffdata`
+# About `kffdata`
 
 [![Travis-CI Build Status](https://travis-ci.org/jjchern/kffdata.svg?branch=master)](https://travis-ci.org/jjchern/kffdata)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/jjchern/kffdata?branch=master&svg=true)](https://ci.appveyor.com/project/jjchern/kffdata)
 
-The goal of kffdata is to store a few datasets from [the Kaiser Family Foundation](https://www.kff.org/statedata/) in a tidy format. The following
+The R package `kffdata` stores a few datasets from [the Kaiser Family Foundation](https://www.kff.org/statedata/) in a tidy format. The following
 datasets are currently available:
 
 ```R
@@ -41,7 +42,7 @@ You can install `kffdata` from the Github repo with
 
 ```R
 # install.packages("devtools")
-devtools::install_github("jjchern/kffdata")
+devtools::install_github("jjchern/kffdata@v0.0.1")
 
 # To uninstall the package, use:
 # remove.packages("kffdata")
