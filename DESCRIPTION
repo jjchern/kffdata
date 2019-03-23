@@ -1,6 +1,6 @@
 Package: kffdata
 Title: What the Package Does (one line, title case)
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: person("JJ", "Chen", email = "jiajia.chern@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-8482-8398"))
 Description: What the package does (one paragraph).
