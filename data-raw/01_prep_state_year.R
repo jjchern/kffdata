@@ -1,6 +1,11 @@
 
-# devtools::install.github("jjchern/fips@v0.0.2")
-# To update, select "Trend Graph", timeframe, and geographic units
+#' This script prepares datasets that are arranged at the state-year level
+#'
+#' Install the fips package for adding common state-level identifiers
+#' intall.packages("remotes")
+#' remotes::install_github("jjchern/fips@v0.0.2")
+#' To update, go to the source link at the beginning of each code block, select
+#' "Trend Graph", timeframe, geographic units, and download the raw data.
 
 library(tidyverse)
 
@@ -63,7 +68,6 @@ read_csv("data-raw/pct_diabetes.csv", skip = 2, na = "N/A") %>%
     select(-Footnotes) %>%
     tidy_up() -> pct_diabetes
 
-
 # Percent of Adults Who are Overweight or Obese ---------------------------
 # https://www.kff.org/other/state-indicator/adult-overweightobesity-rate
 
@@ -73,12 +77,12 @@ read_csv("data-raw/pct_overweight_obesity.csv", skip = 2, na = "N/A") %>%
 
 # Save them! --------------------------------------------------------------
 
-devtools::use_data(hosp_beds,
-                   hosp_admissions,
-                   hosp_em_visits,
-                   hosp_ip_days,
-                   hosp_op_visits,
-                   hc_eee_pc,
-                   hc_eee_pc_by_srvu,
-                   pct_diabetes,
-                   pct_overweight_obesity)
+usethis::use_data(hosp_beds,
+                  hosp_admissions,
+                  hosp_em_visits,
+                  hosp_ip_days,
+                  hosp_op_visits,
+                  hc_eee_pc,
+                  hc_eee_pc_by_srvu,
+                  pct_diabetes,
+                  pct_overweight_obesity)
