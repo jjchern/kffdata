@@ -43,3 +43,8 @@
 #' @md
 #' @source [https://www.kff.org/other/state-indicator/adult-overweightobesity-rate]()
 "pct_overweight_obesity"
+
+#' Total Monthly Medicaid and CHIP Enrollment
+#' @md
+#' @source [https://www.kff.org/health-reform/state-indicator/total-monthly-medicaid-and-chip-enrollment]()
+"medicaid_chip_enrollment"
